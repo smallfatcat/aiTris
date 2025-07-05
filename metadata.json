@@ -1,0 +1,6 @@
+{
+  "name": "Tetris",
+  "description": "A classic block-stacking game.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}

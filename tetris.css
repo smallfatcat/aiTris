@@ -1,0 +1,333 @@
+:root {
+    --board-bg: #1a1a1a;
+    --border-color: #444;
+    --text-color: #f0f0f0;
+    --primary-font: 'Quantico', sans-serif;
+}
+
+body {
+    background-color: #111;
+    color: var(--text-color);
+    font-family: var(--primary-font);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1em 0;
+    min-height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    color: var(--text-color);
+    letter-spacing: 0.2em;
+    text-shadow: 2px 2px 4px #a000f0, -2px -2px 4px #00f0f0;
+    margin-bottom: 1em;
+    min-height: 1.2em; /* Prevent layout shift on text change */
+}
+
+h2 {
+    margin-bottom: 0.5em;
+    text-shadow: 1px 1px 2px #555;
+}
+
+#main-container {
+    margin-bottom: 20px;
+}
+
+/* Battle Mode layout */
+#battle-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.side-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 170px;
+}
+
+.side-info h2 {
+    margin-bottom: 1em;
+}
+
+.strategy-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 150px;
+    margin-bottom: 1em;
+}
+
+.strategy-selector label {
+    text-align: left;
+    font-size: 0.9em;
+    color: #cccccc;
+    padding-left: 2px;
+}
+
+#board-wrapper {
+    /* The canvas inside will have its own border */
+}
+
+#battle-canvas,
+#training-canvas {
+    border: 2px solid var(--border-color);
+    background-color: var(--board-bg);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: block; /* remove extra space below canvas */
+}
+
+
+/* New Training Mode Layout */
+#training-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+#training-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 465px; /* Match canvas width */
+    height: 600px; /* Match canvas height */
+}
+
+.training-info-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+
+.weights-display {
+    width: 100%;
+    font-size: 0.8em;
+    color: #ccc;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.weights-display h4 {
+    margin: 0 0 8px 0;
+    text-align: center;
+    color: var(--text-color);
+    font-size: 1em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.no-change-note {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+    padding-top: 1em;
+}
+
+.weight-entry {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    background: rgba(0,0,0,0.2);
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.weight-name {
+    flex: 1 1 auto;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.weight-value {
+    flex: 0 0 40px;
+    text-align: right;
+    font-family: monospace;
+}
+
+.weight-change {
+    flex: 0 0 55px;
+    text-align: right;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.positive-change {
+    color: #66bb6a;
+}
+
+.negative-change {
+    color: #ef5350;
+}
+
+.info-button-container {
+    display: flex;
+    gap: 5px;
+    margin-top: auto; /* Pushes buttons to the bottom of the flex container */
+}
+
+.info-button-container button {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: 1px solid #888;
+    padding: 6px 4px;
+    font-size: 0.75em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: var(--primary-font);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.info-button-container button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+/* Global Controls */
+#global-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    width: 250px;
+}
+
+#inputdiv, #speed-control {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#speed-label {
+    width: 80px; /* Fixed width to prevent layout shifts */
+    font-size: 0.9em;
+    color: #cccccc;
+}
+
+input[type=number],
+button,
+select {
+    background-color: #333;
+    color: var(--text-color);
+    font-family: var(--primary-font);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 1em;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+select {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button:hover,
+select:hover {
+    background-color: #444;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+    flex-grow: 1;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: #555;
+    height: 8px;
+    border-radius: 4px;
+}
+input[type=range]::-moz-range-track {
+    background: #555;
+    height: 8px;
+    border-radius: 4px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -4px; /* Centers thumb on track */
+    background-color: #f0f0f0;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+}
+input[type=range]::-moz-range-thumb {
+    background-color: #f0f0f0;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: none;
+}
+
+
+@media (max-width: 970px) {
+    #training-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    #training-info-grid {
+       width: 465px; /* match canvas width */
+       height: auto;
+       max-width: 100%;
+    }
+    #battle-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .side-info {
+       margin-bottom: 20px;
+    }
+}
+@media (max-width: 500px) {
+    #training-container {
+        width: 100%;
+    }
+    #training-canvas, #battle-canvas {
+        width: 100%;
+        height: auto;
+    }
+    #training-info-grid {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        max-width: 465px;
+    }
+}
