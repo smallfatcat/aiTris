@@ -1,11 +1,14 @@
 {
-  "name": "tetris",
+  "name": "aiTris",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://smallfatcat.github.io/aiTris/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d dist",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -13,6 +16,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "gh-pages": "^6.3.0",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
   }

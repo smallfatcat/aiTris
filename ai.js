@@ -7,7 +7,7 @@ const COLS = 10;
 const GRID_HEIGHT = 24;
 const BLANK_ROW = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const DANGER_HEIGHT_THRESHOLD = 18; // If the highest column is above this, AI will prioritize survival.
-const DROUGHT_THRESHOLD = 12; // Pieces placed without a Tetris before penalty applies
+const DROUGHT_THRESHOLD = 12; // Pieces placed without a aitris before penalty applies
 
 // --- Heuristic Weights ---
 export const BASE_SURVIVAL_WEIGHTS = {

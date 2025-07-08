@@ -18,7 +18,7 @@ export const blockColors = [
     '#f00000'  // Z - Red
 ];
 
-// speed values from Tetris Gameboy
+// speed values from T GB
 export const gravityAtLevel = [
     883, 816, 750, 683, 616, 550, 466, 366, 283, 183, 
     166, 150, 133, 116, 100, 100, 83, 83, 66, 66, 50

@@ -91,7 +91,7 @@ export function placePiece(state) {
     }
 
     if (linesToClear.length > 0) {
-        // If an I-piece clears lines (likely a Tetris), reset the drought counter.
+        // If an I-piece clears lines (likely a 4line), reset the drought counter.
         if (state.Block.type === BLOCK_I) {
             state.iPieceDrought = 0;
         }

@@ -509,7 +509,7 @@ function getWeightsForStrategy(strategy: string) {
 }
 
 function initBattleMode() {
-    h1.textContent = 'TETRIS AI BATTLE';
+    h1.textContent = 'aitris AI BATTLE';
     trainingModeButton.textContent = 'Enter Training Mode';
     createBattleUI();
 
